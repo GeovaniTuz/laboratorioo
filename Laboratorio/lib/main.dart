@@ -1,7 +1,8 @@
 // inportar libreria principal
 import 'package:flutter/material.dart';
 // Inportotar clase Widget necesarios
-import 'Users/MainUser.dart';
+//import 'Users/MainUser.dart';
+import 'Users/MainAdmin.dart';
 
 //main principal de app
 void main() {
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Laboratorio'),
+      home: AdminMail(title: 'Laboratorio'),
+      //home: MyHomePage(title: 'Laboratorio'),
     );
   }
 }

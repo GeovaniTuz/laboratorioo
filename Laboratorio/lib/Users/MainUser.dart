@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:laboratorio/Users/user/funcion/informacion.dart';
 
 //se importa lor archivos de la clase
 import 'user/CatalLab.dart';
 import 'user/infoU.dart';
 import 'user/NotifLab.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class mainUser extends StatefulWidget {
+  mainUser({Key key, this.title}) : super(key: key);
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _mainUserState createState() => _mainUserState();
   final String title;
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _mainUserState extends State<mainUser> {
   int _pageIn = 0;
 
   //se instancia la clase para poder usar
-  final CatalogoLab _listaCatal = new CatalogoLab();
+  final lista _listaCatal = new lista();
   final NotificacionLab _notificacion = new NotificacionLab();
-  final InformacionUser _informacion = new InformacionUser();
+  final CustomScrollViewComponent _informacion = CustomScrollViewComponent();
 
   // selecionar para que cargue primero
-  Widget _InicioP = new CatalogoLab();
+  Widget _InicioP = new lista();
 
   Widget _SelectPa(int page) {
     switch (page) {
@@ -49,16 +50,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       bottomNavigationBar: CurvedNavigationBar(
           index: _pageIn,
           items: <Widget>[
             Icon(Icons.list_alt, size: 30),
             Icon(Icons.notifications, size: 30),
-            //Icon(Icons.compare_arrows, size: 40),
-            //Icon(Icons.call_split, size: 40),
             Icon(Icons.perm_identity, size: 30),
           ],
           color: Colors.blue,

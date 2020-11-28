@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
-class InformacionUser extends StatelessWidget {
+class NotificacionLab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('Infomación de usuario', textScaleFactor: 2.2),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Notificacion"),
+      ),
+      body: Container(
+        child: CircularProgressIndicator(),
+      ),
     );
   }
 }

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'funcion/Itemlist.dart';
-
-//package para base datos <- implementar
-//import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
+import 'crud/funcion/Itemlist.dart';
 
 class lista extends StatefulWidget {
   @override
@@ -12,9 +9,9 @@ class lista extends StatefulWidget {
 
 class _listaState extends State<lista> {
   // no implemtado
-  //Future<List> getData() async{
-  //  final response = await http.get("url")
-  //}
+  Future<List> getData() async {
+    final response = await http.get("http://192.168.43.170/PreubaLab/db/");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +20,18 @@ class _listaState extends State<lista> {
         IconButton(
             icon: Icon(Icons.search),
             onPressed: () {
-              showSearch(context: context);
+              showSearch(context: context, delegate: null);
             })
       ]),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (BuildContext context) {}
+                  //builder: (BuildContext context) => new addData(),
+                  ));
+        },
+      ),
       body: FutureBuilder<List>(
         //future: getData(),
         builder: (context, snapshot) {

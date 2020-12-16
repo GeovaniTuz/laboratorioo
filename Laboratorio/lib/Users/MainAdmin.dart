@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:laboratorio/Users/admin/crud/settings.dart';
 
 //se importa lor archivos de la clase
 import 'admin/notifyAdmin.dart';
@@ -17,6 +18,7 @@ class _MyHomePageState extends State<AdminMail> {
 
   //se instancia la clase para poder usar
   final NotifyAdmin _notificacion = new NotifyAdmin();
+  final settingslab _sttings = new settingslab();
   final lista _crud = new lista();
 
   // selecionar para que cargue primero
@@ -29,6 +31,9 @@ class _MyHomePageState extends State<AdminMail> {
         break;
       case 1:
         return _notificacion;
+        break;
+      case 2:
+        return _sttings;
         break;
       default:
         return new Container(
@@ -52,6 +57,8 @@ class _MyHomePageState extends State<AdminMail> {
           items: <Widget>[
             Icon(Icons.list_alt, size: 30),
             Icon(Icons.notifications, size: 30),
+            Icon(Icons.settings, size: 30),
+            Icon(Icons.exit_to_app, size: 30),
           ],
           color: Colors.blue,
           backgroundColor: Colors.white,
@@ -63,7 +70,7 @@ class _MyHomePageState extends State<AdminMail> {
             });
           }),
       body: Container(
-        color: Colors.white,
+        color: Colors.white10,
         child: Center(
           child: _InicioP,
         ),

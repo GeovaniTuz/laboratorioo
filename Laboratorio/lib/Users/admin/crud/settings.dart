@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:laboratorio/Users/admin/crud/funcion/Itemlist.dart';
+import 'funcion/Itemlist.dart';
 
-class NotifyAdmin extends StatelessWidget {
+class settingslab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Notificacion"), actions: <Widget>[
+      appBar: AppBar(title: Text("Configuación"), actions: <Widget>[
         IconButton(
             icon: Icon(Icons.search),
             onPressed: () {

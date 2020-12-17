@@ -49,10 +49,6 @@ class MySliverAppBar extends SliverPersistentHeaderDelegate {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [
-                Color.fromRGBO(29, 75, 136, 1.0),
-                Color.fromRGBO(18, 57, 99, 1.0)
-              ],
             ),
           ),
         ),

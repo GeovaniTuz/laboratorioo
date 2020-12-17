@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:laboratorio/Users/user/funcion/informacion.dart';
+import 'package:laboratorio/Users/user/CatalLab.dart';
+import 'package:laboratorio/Users/user/NotifLab.dart';
+import 'package:laboratorio/Users/user/settings.dart';
+//import 'package:laboratorio/Users/user/funcion/informacion.dart';
 
 //se importa lor archivos de la clase
-import 'user/CatalLab.dart';
-import 'user/infoU.dart';
-import 'user/NotifLab.dart';
+
+//import 'user/infoU.dart';
 
 class mainUser extends StatefulWidget {
   mainUser({Key key, this.title}) : super(key: key);
@@ -19,8 +21,9 @@ class _mainUserState extends State<mainUser> {
 
   //se instancia la clase para poder usar
   final lista _listaCatal = new lista();
-  final NotificacionLab _notificacion = new NotificacionLab();
-  final CustomScrollViewComponent _informacion = CustomScrollViewComponent();
+  final settingslab _sttings = new settingslab();
+  final Notify _notificacion = new Notify();
+  //final CustomScrollViewComponent _informacion = CustomScrollViewComponent();
 
   // selecionar para que cargue primero
   Widget _InicioP = new lista();
@@ -34,7 +37,7 @@ class _mainUserState extends State<mainUser> {
         return _notificacion;
         break;
       case 2:
-        return _informacion;
+        return _sttings;
         break;
       default:
         return new Container(
@@ -55,19 +58,20 @@ class _mainUserState extends State<mainUser> {
           items: <Widget>[
             Icon(Icons.list_alt, size: 30),
             Icon(Icons.notifications, size: 30),
-            Icon(Icons.perm_identity, size: 30),
+            //Icon(Icons.settings, size: 30),
+            Icon(Icons.exit_to_app, size: 30),
           ],
-          color: Colors.blue,
-          backgroundColor: Colors.white,
+          color: Colors.white,
+          backgroundColor: Colors.blue,
           animationCurve: Curves.easeInOut,
-          animationDuration: Duration(milliseconds: 600),
+          animationDuration: Duration(milliseconds: 500),
           onTap: (int tapped) {
             setState(() {
               _InicioP = _SelectPa(tapped);
             });
           }),
       body: Container(
-        color: Colors.white,
+        color: Colors.white10,
         child: Center(
           child: _InicioP,
         ),

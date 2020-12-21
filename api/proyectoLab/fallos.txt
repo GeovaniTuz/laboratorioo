@@ -1,0 +1,3 @@
+* NO se permite actualizar los datos de laboratorio.
+* Detalles con el inicio de sesion, no valida datos.
+los index son preubas para web. 

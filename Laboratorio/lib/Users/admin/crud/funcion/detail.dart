@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'Itemlist.dart';
 
 //package para base datos <- implementar
-//import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 
 class Detail extends StatefulWidget {
   List list;
@@ -16,7 +16,9 @@ class Detail extends StatefulWidget {
 
 class _DetailState extends State<Detail> {
   Void delenteData() {
-    var url = "http//172.18912.12";
+    var url = "http://192.168.43.86/Labortorio/api/delent.php";
+    http.post(url,
+        body: {'idlaboratorio': widget.list[widget.index]['idelaboratorio']});
   }
 
   void confirmar() {

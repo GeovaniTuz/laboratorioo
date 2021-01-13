@@ -33,12 +33,10 @@ class _MyHomePageState extends State<MyHomePage> {
         msg = "Login Fail";
       });
     } else {
-      if (datauser[0]['nivel'] == '1') {
-        Navigator.pushReplacementNamed(
-            context, '/laboratorio/lib/Users/MainAdmin.dart');
-      } else if (datauser[0]['nivel'] == '2') {
-        Navigator.pushReplacementNamed(
-            context, '/laboratorio/lib/Users/MainUser.dart');
+      if (datauser[0]['rol_idrol'] == '3') {
+        Navigator.pushReplacementNamed(context, '/Users/MainAdmin');
+      } else if (datauser[0]['rol_idrol'] == '4') {
+        Navigator.pushReplacementNamed(context, '/Users/MainUser');
       }
 
       setState(() {

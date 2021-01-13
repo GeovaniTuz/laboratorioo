@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-//import 'Users/MainUser.dart';
-import 'Users/MainAdmin.dart';
-//import 'login.dart';
+import 'package:laboratorio/Users/MainAdmin.dart';
+import 'package:laboratorio/Users/MainUser.dart';
+import 'package:laboratorio/login.dart';
 
 //main principal de app
 void main() {
@@ -18,9 +18,14 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: AdminMail(), //ADMINISTRADOR
+      home: MyHomePage(), //ADMINISTRADOR
       //home: MyHomePage() //LOGIN
       //home: mainUser() //USUARIO
+      routes: <String, WidgetBuilder>{
+        '/Users/MainAdmin': (BuildContext context) => new AdminMail(),
+        '/Users/MainUser': (BuildContext context) => new mainUser(),
+        '/Users/LoginPage': (BuildContext context) => new MyHomePage(),
+      },
     );
   }
 }

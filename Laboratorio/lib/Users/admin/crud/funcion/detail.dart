@@ -1,6 +1,8 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:laboratorio/Users/admin/AdminLab.dart';
+import 'package:laboratorio/Users/admin/crud/funcion/editdata.dart';
 import 'Itemlist.dart';
 
 //package para base datos <- implementar
@@ -16,7 +18,8 @@ class Detail extends StatefulWidget {
 
 class _DetailState extends State<Detail> {
   Void delenteData() {
-    var url = "http://192.168.43.86/Labortorio/api/delent.php";
+    var url =
+        "https://pagina-web-optimizacion.000webhostapp.com/API/api/delenteData.php";
     http.post(url,
         body: {'idlaboratorio': widget.list[widget.index]['idelaboratorio']});
   }
@@ -24,7 +27,7 @@ class _DetailState extends State<Detail> {
   void confirmar() {
     AlertDialog alertDialog = new AlertDialog(
       content: new Text(
-          "Seguro deseas eliminar '${widget.list[widget.index]['username']}'"),
+          "Seguro deseas eliminar '${widget.list[widget.index]['idlaboratorio']}'"),
       actions: <Widget>[
         RaisedButton(
           child: Text(
@@ -33,10 +36,20 @@ class _DetailState extends State<Detail> {
           ),
           color: Colors.red,
           onPressed: () {
+            delenteData();
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) => ItemList()));
+              builder: (BuildContext context) => lista(),
+            ));
           },
-        )
+        ),
+        new RaisedButton(
+          child: new Text(
+            "Cancelar",
+            style: new TextStyle(color: Colors.black),
+          ),
+          color: Colors.green,
+          onPressed: () => Navigator.pop(context),
+        ),
       ],
     );
     showDialog(context: context, child: alertDialog);
@@ -46,7 +59,8 @@ class _DetailState extends State<Detail> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("${widget.list[widget.list[widget.index]['username']]}"),
+          title: Text(
+              "${widget.list[widget.list[widget.index]['idlaboratorio']]}"),
         ),
         body: Container(
           height: 270.0,
@@ -59,16 +73,39 @@ class _DetailState extends State<Detail> {
                     padding: const EdgeInsets.only(top: 30.0),
                   ),
                   Text(
-                    widget.list[widget.index]['username'],
+                    widget.list[widget.index]['idlaboratorio'],
                     style: TextStyle(fontSize: 20.0),
                   ),
                   Divider(),
-                  //Text()
+                  Text(
+                    "Edificio: ${widget.list[widget.index]['idlaboratorio']}",
+                    style: TextStyle(fontSize: 20.0),
+                  ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       RaisedButton(
                         child: Text("editar"),
+                        color: Colors.blueAccent,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        onPressed: () =>
+                            Navigator.of(context).push(new MaterialPageRoute(
+                          builder: (BuildContext context) => new EditData(
+                            list: widget.list,
+                            index: widget.index,
+                          ),
+                        )),
+                      ),
+                      VerticalDivider(),
+                      new RaisedButton(
+                        child: Text("Eliminar"),
+                        color: Colors.redAccent,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        onPressed: () => confirmar(),
                       )
                     ],
                   )

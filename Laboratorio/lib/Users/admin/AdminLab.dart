@@ -2,8 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'crud/funcion/Itemlist.dart';
+import 'package:laboratorio/Users/admin/crud/funcion/registro.dart';
+//import 'crud/funcion/Itemlist.dart';
 import 'crud/funcion/detail.dart';
+import 'dart:async';
 
 class lista extends StatefulWidget {
   @override
@@ -12,9 +14,10 @@ class lista extends StatefulWidget {
 
 class _listaState extends State<lista> {
   // no implemtado
+
   Future<List> getData() async {
-    final response =
-        await http.get("http://192.168.43.86/Labortorio/api/view.php");
+    final response = await http.get(
+        "https://pagina-web-optimizacion.000webhostapp.com/API/api/view.php");
     return json.decode(response.body);
   }
 
@@ -31,10 +34,9 @@ class _listaState extends State<lista> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (BuildContext context) {}
-                  //builder: (BuildContext context) => new addData(),
-                  ));
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (BuildContext context) => AddData()),
+          );
         },
       ),
       body: FutureBuilder<List>(
@@ -76,8 +78,8 @@ class ItemList extends StatelessWidget {
             child: new Card(
               child: new ListTile(
                 title: new Text(
-                  list[i]['idlaboratorio'],
-                  style: TextStyle(fontSize: 25.0, color: Colors.orangeAccent),
+                  list[i]['Nombre'],
+                  style: TextStyle(fontSize: 25.0, color: Colors.blue),
                 ),
                 leading: new Icon(
                   Icons.person_pin,
@@ -85,7 +87,7 @@ class ItemList extends StatelessWidget {
                   color: Colors.orangeAccent,
                 ),
                 subtitle: new Text(
-                  "Nivel : ${list[i]['idlaboratorio']}",
+                  "Edificio: ${list[i]['edificio']} ${list[i]['numero_aula']}",
                   style: TextStyle(fontSize: 20.0, color: Colors.black),
                 ),
               ),

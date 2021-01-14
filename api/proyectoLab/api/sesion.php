@@ -5,11 +5,11 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $MySQLiconn=$connect->query("SELECT * FROM usuario WHERE username='".$username."' and password='".$password."'");
+    $MySQLicon=$MySQLiconn->query("SELECT * FROM usuario WHERE username='".$username."' and password='".$password."'");
 
     $resultado=array();
 
-    while($extraerDatos=$MySQLiconn->fetch_assoc()){
+    while($extraerDatos=$MySQLicon->fetch_assoc()){
         $resultado[]=$extraerDatos;
     }
     header("Location:index.php");

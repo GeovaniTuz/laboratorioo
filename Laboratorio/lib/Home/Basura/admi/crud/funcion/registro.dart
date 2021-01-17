@@ -7,6 +7,7 @@ class AddData extends StatefulWidget {
 }
 
 class _AddDataState extends State<AddData> {
+  TextEditingController controllerid = new TextEditingController();
   TextEditingController controllerNombre = new TextEditingController();
   TextEditingController controllerDescripcion = new TextEditingController();
   TextEditingController controllerCodigo = new TextEditingController();
@@ -23,6 +24,7 @@ class _AddDataState extends State<AddData> {
         "https://pagina-web-optimizacion.000webhostapp.com/API/api/add.php";
 
     http.post(url, body: {
+      "idlaboratorio": controllerid.text,
       "Nombre": controllerNombre.text,
       "descripcion": controllerDescripcion.text,
       "codigo": controllerCodigo.text,
@@ -30,18 +32,19 @@ class _AddDataState extends State<AddData> {
       "numero_aula": controllerNumeroAula.text,
       "foto": controllerFoto.text,
       "carrera_idcarrera": controllerCarreraId.text,
-      "Hora_idHora": controllerHoraId.text,
-      "idlaboratorio": _mySelection.toString(),
+      "Hora_idHora": controllerHoraId,
+      //"Hora_idHora": _mySelection.toString(),
+
       //aqui traemos el DropdownMenuItem lo llamamos _mySelection este es como el controller
     });
   }
 
 // hay que implemetar para el caso de hora y carrerra
-  String _mySelection;
+  /* String _mySelection;
   List<Map> _myJson = [
-    {"id": 0, "name": "ventas"},
-    {"id": 1, "name": "admin"}
-  ];
+    {"Hora_idHora": 0, "name": "8:00"},
+    {"Hora_idHora": 1, "name": "14:00"}
+  ];*/
 
   //fin de la map
 
@@ -49,7 +52,7 @@ class _AddDataState extends State<AddData> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Adicionar Usuarios"),
+        title: new Text("Nuevo Laboratorio"),
       ),
       body: Form(
         key: _formKey,
@@ -60,21 +63,21 @@ class _AddDataState extends State<AddData> {
               new Column(
                 children: <Widget>[
                   new ListTile(
-                    leading: const Icon(Icons.person, color: Colors.black),
+                    leading:
+                        const Icon(Icons.reduce_capacity, color: Colors.black),
                     title: new TextFormField(
                       controller: controllerNombre,
                       validator: (value) {
-                        if (value.isEmpty)
-                          return "Ingresa un nombre de laboratorio";
+                        if (value.isEmpty) return "Ingresa los datos";
                       },
                       decoration: new InputDecoration(
-                        hintText: "Laboratorio",
+                        hintText: "Ejem. Cisco",
                         labelText: "Laboratorio",
                       ),
                     ),
                   ),
                   new ListTile(
-                    leading: const Icon(Icons.person, color: Colors.black),
+                    leading: const Icon(Icons.description, color: Colors.black),
                     title: new TextFormField(
                       controller: controllerDescripcion,
                       validator: (value) {
@@ -82,90 +85,93 @@ class _AddDataState extends State<AddData> {
                           return "Ingresa un nombre de descripcion";
                       },
                       decoration: new InputDecoration(
-                        hintText: "Descripcion",
+                        hintText: "Ejem. Lugar para materiales...",
                         labelText: "Descripcion",
                       ),
                     ),
                   ),
                   new ListTile(
-                    leading: const Icon(Icons.person, color: Colors.black),
+                    leading: const Icon(Icons.confirmation_number,
+                        color: Colors.black),
                     title: new TextFormField(
                       controller: controllerCodigo,
                       validator: (value) {
                         if (value.isEmpty) return "Ingresa Codigo";
                       },
                       decoration: new InputDecoration(
-                        hintText: "Codigo",
+                        hintText: "Ejem. 122345",
                         labelText: "Codigo",
                       ),
                     ),
                   ),
                   new ListTile(
-                    leading: const Icon(Icons.person, color: Colors.black),
+                    leading:
+                        const Icon(Icons.location_city, color: Colors.black),
                     title: new TextFormField(
                       controller: controllerEdificio,
                       validator: (value) {
                         if (value.isEmpty) return "Ingresa Edificio";
                       },
                       decoration: new InputDecoration(
-                        hintText: "Edificio",
+                        hintText: "Ejem. B",
                         labelText: "Edificio",
                       ),
                     ),
                   ),
                   new ListTile(
-                    leading: const Icon(Icons.person, color: Colors.black),
+                    leading:
+                        const Icon(Icons.confirmation_num, color: Colors.black),
                     title: new TextFormField(
                       controller: controllerNumeroAula,
                       validator: (value) {
                         if (value.isEmpty) return "Numero Aula";
                       },
                       decoration: new InputDecoration(
-                        hintText: "NO. Aula",
+                        hintText: "Ejem. 2",
                         labelText: "No. Aula ",
                       ),
                     ),
                   ),
                   new ListTile(
-                    leading: const Icon(Icons.person, color: Colors.black),
+                    leading: const Icon(Icons.photo, color: Colors.black),
                     title: new TextFormField(
                       controller: controllerFoto,
                       validator: (value) {
                         if (value.isEmpty) return "Agregar foto";
                       },
                       decoration: new InputDecoration(
-                        hintText: "Foto",
+                        hintText: "Ejem. imagen.png",
                         labelText: "Foto",
                       ),
                     ),
                   ),
                   new ListTile(
-                    leading: const Icon(Icons.person, color: Colors.black),
+                    leading: const Icon(Icons.settings, color: Colors.black),
                     title: new TextFormField(
                       controller: controllerCarreraId,
                       validator: (value) {
                         if (value.isEmpty) return "Carerra";
                       },
                       decoration: new InputDecoration(
-                        hintText: "Carrera",
+                        hintText: "Ejem. 6",
                         labelText: "Carrera",
                       ),
                     ),
                   ),
                   new ListTile(
-                    leading: const Icon(Icons.location_on, color: Colors.black),
+                    leading: const Icon(Icons.timelapse, color: Colors.black),
                     title: new TextFormField(
                       controller: controllerHoraId,
                       validator: (value) {
                         if (value.isEmpty) return "Hora";
                       },
                       decoration: new InputDecoration(
-                        hintText: "Hora",
+                        hintText: "Ejem. 1",
                         labelText: "Hora",
                       ),
                     ),
                   ),
-                  Row(
+                  /*Row(
                     children: <Widget>[
                       new Container(
                         margin: EdgeInsets.only(left: 20.0),
@@ -202,7 +208,7 @@ class _AddDataState extends State<AddData> {
                         ),
                       ),
                     ],
-                  ),
+                  ),*/
                   new Padding(
                     padding: const EdgeInsets.all(30.0),
                   ),
@@ -218,15 +224,6 @@ class _AddDataState extends State<AddData> {
                       }
                     },
                   ),
-                  new RaisedButton(
-                    child: new Text("Salir"),
-                    color: Colors.blueAccent,
-                    shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(30.0)),
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(context, '/adminPage');
-                    },
-                  )
                 ],
               ),
             ],

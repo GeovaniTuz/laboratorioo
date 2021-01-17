@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:laboratorio/Users/MainAdmin.dart';
-//import 'package:laboratorio/Users/MainUser.dart';
-//import 'package:laboratorio/login.dart';
+import 'package:laboratorio/Home/Usuario/MainAdmin.dart';
 
 //main principal de app
 void main() {
@@ -21,6 +19,7 @@ class MyApp extends StatelessWidget {
       home: AdminMail(), //ADMINISTRADOR
       //home: MyHomePage() //LOGIN
       //home: mainUser() //USUARIO
+
       /*routes: <String, WidgetBuilder>{
         '/Users/MainAdmin': (BuildContext context) => new AdminMail(),
         '/Users/MainUser': (BuildContext context) => new mainUser(),

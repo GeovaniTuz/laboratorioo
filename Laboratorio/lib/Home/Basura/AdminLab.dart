@@ -1,10 +1,10 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:laboratorio/Users/admin/crud/funcion/registro.dart';
-//import 'crud/funcion/Itemlist.dart';
-import 'crud/funcion/detail.dart';
+import 'package:laboratorio/Home/Basura/admi/crud/funcion/detail.dart';
+import 'package:laboratorio/Home/Usuario/Administrador/Accion/Agregar_usuario.dart';
+
+import 'dart:convert';
+
 import 'dart:async';
 
 class lista extends StatefulWidget {
@@ -13,29 +13,34 @@ class lista extends StatefulWidget {
 }
 
 class _listaState extends State<lista> {
-  // no implemtado
-
+//Obtener usuario desde el servidor
   Future<List> getData() async {
+    //peticion al servidor
     final response = await http.get(
         "https://pagina-web-optimizacion.000webhostapp.com/API/api/view.php");
     return json.decode(response.body);
   }
+//fin de la solicitud
 
   @override
   Widget build(BuildContext context) {
+    //Inicio scaffold
     return Scaffold(
+      //Nombrar Barra
       appBar: AppBar(title: Text("Lista de laboratorio"), actions: <Widget>[
         IconButton(
+            //Buscador inicio
             icon: Icon(Icons.search),
             onPressed: () {
               showSearch(context: context, delegate: null);
-            })
-      ]),
+            }) //Buscador Fin
+      ]), //fin Barra
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
           Navigator.of(context).push(
-            MaterialPageRoute(builder: (BuildContext context) => AddData()),
+            MaterialPageRoute(
+                builder: (BuildContext context) => AgregarUsuario()),
           );
         },
       ),
@@ -52,7 +57,7 @@ class _listaState extends State<lista> {
                 );
         },
       ),
-    );
+    ); //Fin del scaffold
   }
 }
 
@@ -70,7 +75,7 @@ class ItemList extends StatelessWidget {
           child: new GestureDetector(
             onTap: () => Navigator.of(context).push(
               new MaterialPageRoute(
-                  builder: (BuildContext context) => new Detail(
+                  builder: (BuildContext context) => Detail(
                         list: list,
                         index: i,
                       )),
@@ -82,9 +87,9 @@ class ItemList extends StatelessWidget {
                   style: TextStyle(fontSize: 25.0, color: Colors.blue),
                 ),
                 leading: new Icon(
-                  Icons.person_pin,
-                  size: 77.0,
-                  color: Colors.orangeAccent,
+                  Icons.lightbulb_outline,
+                  size: 75.0,
+                  color: Colors.blueGrey,
                 ),
                 subtitle: new Text(
                   "Edificio: ${list[i]['edificio']} ${list[i]['numero_aula']}",

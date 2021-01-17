@@ -12,7 +12,7 @@
     while($extraerDatos=$MySQLicon->fetch_assoc()){
         $resultado[]=$extraerDatos;
     }
-    header("Location:index.php");
-    //echo json_encode($resultado);
+    //header("Location:index.php");
+    echo json_encode($resultado);
 
     ?>

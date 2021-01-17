@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:laboratorio/Users/admin/crud/funcion/Itemlist.dart';
+import 'package:laboratorio/Home/Basura/AdminLab.dart';
 
 class NotifyAdmin extends StatelessWidget {
   @override

@@ -1,0 +1,7 @@
+* Repara API para editar fallas no detectas.
+* personalizar el proyecto.
+* repara login y carga de imagen.
+* Fallas no detectar en edicion y agregar datos desde api desde la aplicacion.
+*
+
+

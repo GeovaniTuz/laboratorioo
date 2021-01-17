@@ -1,37 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:laboratorio/Users/user/CatalLab.dart';
-import 'package:laboratorio/Users/user/NotifLab.dart';
-import 'package:laboratorio/Users/user/settings.dart';
-//import 'package:laboratorio/Users/user/funcion/informacion.dart';
+import 'package:laboratorio/Home/Usuario/Administrador/Administrador.dart';
+import 'package:laboratorio/Home/Usuario/Administrador/configuracion/notifyAdmin.dart';
+import 'package:laboratorio/Home/Usuario/Administrador/configuracion/settings.dart';
 
-//se importa lor archivos de la clase
-
-//import 'user/infoU.dart';
-
-class mainUser extends StatefulWidget {
-  mainUser({Key key, this.title}) : super(key: key);
+class AdminMail extends StatefulWidget {
+  AdminMail({Key key, this.title}) : super(key: key);
   @override
-  _mainUserState createState() => _mainUserState();
+  _MyHomePageState createState() => _MyHomePageState();
   final String title;
 }
 
-class _mainUserState extends State<mainUser> {
+class _MyHomePageState extends State<AdminMail> {
   int _pageIn = 0;
 
   //se instancia la clase para poder usar
-  final lista _listaCatal = new lista();
+  final NotifyAdmin _notificacion = new NotifyAdmin();
   final settingslab _sttings = new settingslab();
-  final Notify _notificacion = new Notify();
-  //final CustomScrollViewComponent _informacion = CustomScrollViewComponent();
+  final listLab _crud = new listLab();
 
   // selecionar para que cargue primero
-  Widget _InicioP = new lista();
+  Widget _InicioP = new listLab();
 
   Widget _SelectPa(int page) {
     switch (page) {
       case 0:
-        return _listaCatal;
+        return _crud;
         break;
       case 1:
         return _notificacion;
@@ -53,18 +47,21 @@ class _mainUserState extends State<mainUser> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //appBar: AppBar(
+      //  title: Text(widget.title),
+      //),
       bottomNavigationBar: CurvedNavigationBar(
           index: _pageIn,
           items: <Widget>[
             Icon(Icons.list_alt, size: 30),
             Icon(Icons.notifications, size: 30),
-            //Icon(Icons.settings, size: 30),
+            Icon(Icons.settings, size: 30),
             Icon(Icons.exit_to_app, size: 30),
           ],
-          color: Colors.white,
-          backgroundColor: Colors.blue,
+          color: Colors.blue,
+          backgroundColor: Colors.white,
           animationCurve: Curves.easeInOut,
-          animationDuration: Duration(milliseconds: 500),
+          animationDuration: Duration(milliseconds: 600),
           onTap: (int tapped) {
             setState(() {
               _InicioP = _SelectPa(tapped);

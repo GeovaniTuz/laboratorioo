@@ -1,12 +1,10 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:laboratorio/Users/admin/AdminLab.dart';
-import 'package:laboratorio/Users/admin/crud/funcion/editdata.dart';
-import 'Itemlist.dart';
+import 'dart:ffi';
 
 //package para base datos <- implementar
 import 'package:http/http.dart' as http;
+import 'package:laboratorio/Home/Basura/AdminLab.dart';
+import 'package:laboratorio/Home/Basura/admi/crud/funcion/editdata.dart';
 
 class Detail extends StatefulWidget {
   List list;

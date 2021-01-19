@@ -58,10 +58,10 @@ class _MyHomePageState extends State<AdminMail> {
             Icon(Icons.settings, size: 30),
             Icon(Icons.exit_to_app, size: 30),
           ],
-          color: Colors.blue,
-          backgroundColor: Colors.white,
+          color: Colors.white,
+          backgroundColor: Colors.blue,
           animationCurve: Curves.easeInOut,
-          animationDuration: Duration(milliseconds: 600),
+          animationDuration: Duration(milliseconds: 500),
           onTap: (int tapped) {
             setState(() {
               _InicioP = _SelectPa(tapped);

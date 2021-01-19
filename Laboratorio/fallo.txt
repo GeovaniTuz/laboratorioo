@@ -2,6 +2,10 @@
 * personalizar el proyecto.
 * repara login y carga de imagen.
 * Fallas no detectar en edicion y agregar datos desde api desde la aplicacion.
-*
+* view.dart fallas al momento de cargar los archivos, tarda mucho en hacer la peticion en la base datos. 
+* crear botton para hacer solicitud.
+*Fallos detectados en la parte de Editar_Usuario.dark linea 40.
+
+
 
 

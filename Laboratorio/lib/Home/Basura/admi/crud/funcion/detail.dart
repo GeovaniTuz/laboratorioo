@@ -57,8 +57,7 @@ class _DetailState extends State<Detail> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(
-              "${widget.list[widget.list[widget.index]['idlaboratorio']]}"),
+          title: Text('laboratorio'),
         ),
         body: Container(
           height: 270.0,

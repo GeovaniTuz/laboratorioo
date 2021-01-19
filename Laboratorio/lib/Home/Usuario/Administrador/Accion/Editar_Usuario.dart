@@ -15,90 +15,104 @@ class EditarUsuario extends StatefulWidget {
 }
 
 class _EditarUsuarioState extends State<EditarUsuario> {
-  //declaracion de uso editi
-  TextEditingController controllerNombre;
-  TextEditingController controllerDescripcion;
-  TextEditingController controllerCodigo;
-  TextEditingController controllerEdificio;
-  TextEditingController controllerNumeroAula;
-  TextEditingController controllerFoto;
-  TextEditingController controllerCarreraId;
-  TextEditingController controllerHoraId;
+  var _formKey = GlobalKey<FormState>();
+  // Inicio de los datos
+  TextEditingController controllerid = new TextEditingController();
+  TextEditingController controllerNombre = new TextEditingController();
+  TextEditingController controllerDescripcion = new TextEditingController();
+  TextEditingController controllerCodigo = new TextEditingController();
+  TextEditingController controllerEdificio = new TextEditingController();
+  TextEditingController controllerNumeroAula = new TextEditingController();
+  TextEditingController controllerFoto = new TextEditingController();
+  TextEditingController controllerCarreraId = new TextEditingController();
+  TextEditingController controllerHoraId = new TextEditingController();
+
   // fin editi
   @override
   Widget build(BuildContext context) {
     //Inicio de scaf
     return Scaffold(
-      //inicio de Barra
-      appBar: AppBar(
-        title: Text("Editar Laboratorio"),
-      ),
-      //Fin de barra
-      body: new Container(
-        padding: EdgeInsets.all(10.0),
-        child: new Center(
-          child: new Column(
-            children: <Widget>[
-              new Text("ID: " + widget.lista[widget.index]['idlaboratorio']),
-              //--------------------------------
-              new TextField(
-                controller: controllerNombre,
-                decoration: new InputDecoration(labelText: "Nombre"),
-              ),
-              //--------------------------------
-              new TextField(
-                controller: controllerDescripcion,
-                decoration: new InputDecoration(labelText: "Descripcion"),
-              ),
-              //--------------------------------
-              new TextField(
-                controller: controllerCodigo,
-                decoration: new InputDecoration(labelText: "Codigo"),
-              ),
-              //--------------------------------
-              new TextField(
-                controller: controllerEdificio,
-                decoration: new InputDecoration(labelText: "Edificio"),
-              ),
-              //--------------------------------
-              new TextField(
-                controller: controllerNumeroAula,
-                decoration: new InputDecoration(labelText: "Num. Aula"),
-              ),
-              //--------------------------------
-              new TextField(
-                controller: controllerFoto,
-                decoration: new InputDecoration(labelText: "Foto"),
-              ),
-              //--------------------------------
-              new TextField(
-                controller: controllerCarreraId,
-                decoration: new InputDecoration(labelText: "Carrera"),
-              ),
-              //--------------------------------
-              new TextField(
-                controller: controllerHoraId,
-                decoration: new InputDecoration(labelText: "Hora"),
-              ),
-              //--------------------------------
-
-              //--------------------------------
-
-              new RaisedButton(
-                child: Text("Guadar"),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                onPressed: () {
-                  editar();
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          ),
+        //inicio de Barra
+        appBar: AppBar(
+          title: Text("Editar Laboratorio"),
         ),
-      ),
-    );
+        //Fin de barra
+        body: new Form(
+            key: _formKey,
+            child: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: new ListView(
+                  children: <Widget>[
+                    new Column(
+                      //mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        new Text("ID: " +
+                            widget.lista[widget.index]['idlaboratorio']),
+                        //--------------------------------
+                        new TextField(
+                          controller: controllerNombre,
+                          decoration: new InputDecoration(labelText: "Nombre"),
+                          keyboardType: TextInputType.name,
+                        ),
+                        //--------------------------------
+                        new TextField(
+                          controller: controllerDescripcion,
+                          decoration:
+                              new InputDecoration(labelText: "Descripcion"),
+                        ),
+                        //--------------------------------
+                        new TextField(
+                            controller: controllerCodigo,
+                            decoration:
+                                new InputDecoration(labelText: "Codigo"),
+                            keyboardType: TextInputType.number),
+                        //--------------------------------
+                        new TextField(
+                          controller: controllerEdificio,
+                          decoration:
+                              new InputDecoration(labelText: "Edificio"),
+                        ),
+                        //--------------------------------
+                        new TextField(
+                            controller: controllerNumeroAula,
+                            decoration:
+                                new InputDecoration(labelText: "Num. Aula"),
+                            keyboardType: TextInputType.number),
+                        //--------------------------------
+                        new TextField(
+                          controller: controllerFoto,
+                          decoration: new InputDecoration(labelText: "Foto"),
+                        ),
+                        //--------------------------------
+
+                        new TextField(
+                            controller: controllerCarreraId,
+                            decoration:
+                                new InputDecoration(labelText: "Carrera"),
+                            keyboardType: TextInputType.number),
+                        //--------------------------------
+                        new TextField(
+                            controller: controllerHoraId,
+                            decoration: new InputDecoration(labelText: "Hora"),
+                            keyboardType: TextInputType.number),
+                        //--------------------------------
+
+                        //--------------------------------
+
+                        new RaisedButton(
+                          child: Text("Guadar"),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                          onPressed: () {
+                            editar();
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ],
+                    )
+                  ],
+                ))));
     // fin de scaf
   }
 

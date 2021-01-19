@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:laboratorio/Home/Usuario/Docente/CatalLab.dart';
-import 'package:laboratorio/Home/Usuario/Docente/NotifLab.dart';
-import 'package:laboratorio/Home/Usuario/Docente/settings.dart';
+import 'package:laboratorio/Home/Usuario/Docente/funcion/NotifLab.dart';
+import 'package:laboratorio/Home/Usuario/Docente/funcion/settings.dart';
+import 'package:laboratorio/Home/Usuario/Docente/view.dart';
 
 class mainUser extends StatefulWidget {
   mainUser({Key key, this.title}) : super(key: key);
@@ -15,13 +15,13 @@ class _mainUserState extends State<mainUser> {
   int _pageIn = 0;
 
   //se instancia la clase para poder usar
-  final lista _listaCatal = new lista();
+  final listLab _listaCatal = new listLab();
   final settingslab _sttings = new settingslab();
   final Notify _notificacion = new Notify();
   //final CustomScrollViewComponent _informacion = CustomScrollViewComponent();
 
   // selecionar para que cargue primero
-  Widget _InicioP = new lista();
+  Widget _InicioP = new listLab();
 
   Widget _SelectPa(int page) {
     switch (page) {

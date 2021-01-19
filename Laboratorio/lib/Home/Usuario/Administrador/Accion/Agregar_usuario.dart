@@ -8,6 +8,7 @@ class AgregarUsuario extends StatefulWidget {
 }
 
 class _AgregarUsuarioState extends State<AgregarUsuario> {
+  var _formKey = GlobalKey<FormState>();
   //declaracion de uso editi
   TextEditingController controllerid = new TextEditingController();
   TextEditingController controllerNombre = new TextEditingController();
@@ -23,77 +24,79 @@ class _AgregarUsuarioState extends State<AgregarUsuario> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Editar Laboratorio"),
-      ),
-      //Fin de barra
-      body: new Container(
-        padding: EdgeInsets.all(10.0),
-        child: new Center(
-          child: new Column(
-            children: <Widget>[
-              //--------------------------------
-              new TextField(
-                controller: controllerNombre,
-                decoration: new InputDecoration(labelText: "Nombre"),
-              ),
-              //--------------------------------
-              new TextField(
-                controller: controllerDescripcion,
-                decoration: new InputDecoration(labelText: "Descripcion"),
-              ),
-              //--------------------------------
-              new TextField(
-                controller: controllerCodigo,
-                decoration: new InputDecoration(labelText: "Codigo"),
-              ),
-              //--------------------------------
-              new TextField(
-                controller: controllerEdificio,
-                decoration: new InputDecoration(labelText: "Edificio"),
-              ),
-              //--------------------------------
-              new TextField(
-                controller: controllerNumeroAula,
-                decoration: new InputDecoration(labelText: "Num. Aula"),
-              ),
-              //--------------------------------
-              new TextField(
-                controller: controllerFoto,
-                decoration: new InputDecoration(labelText: "Foto"),
-              ),
-              //--------------------------------
-              new TextField(
-                controller: controllerCarreraId,
-                decoration: new InputDecoration(labelText: "Carrera"),
-              ),
-              //--------------------------------
-              new TextField(
-                controller: controllerHoraId,
-                decoration: new InputDecoration(labelText: "Hora"),
-              ),
-              //--------------------------------
-
-              //--------------------------------
-
-              new RaisedButton(
-                child: Text("Guadar"),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                onPressed: () {
-                  Guadar();
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          ),
+        appBar: AppBar(
+          title: Text("Editar Laboratorio"),
         ),
-      ),
-    );
+        //Fin de barra
+        body: new Form(
+          child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: new ListView(children: <Widget>[
+              new Column(
+                children: <Widget>[
+                  //children: <Widget>[
+                  //--------------------------------
+                  new TextField(
+                    controller: controllerNombre,
+                    decoration: new InputDecoration(labelText: "Nombre"),
+                  ),
+                  //--------------------------------
+                  new TextField(
+                    controller: controllerDescripcion,
+                    decoration: new InputDecoration(labelText: "Descripcion"),
+                  ),
+                  //--------------------------------
+                  new TextField(
+                      controller: controllerCodigo,
+                      decoration: new InputDecoration(labelText: "Codigo"),
+                      keyboardType: TextInputType.number),
+                  //--------------------------------
+                  new TextField(
+                    controller: controllerEdificio,
+                    decoration: new InputDecoration(labelText: "Edificio"),
+                  ),
+                  //--------------------------------
+                  new TextField(
+                      controller: controllerNumeroAula,
+                      decoration: new InputDecoration(labelText: "Num. Aula"),
+                      keyboardType: TextInputType.number),
+                  //--------------------------------
+                  new TextField(
+                    controller: controllerFoto,
+                    decoration: new InputDecoration(labelText: "Foto"),
+                  ),
+                  //--------------------------------
+                  new TextField(
+                      controller: controllerCarreraId,
+                      decoration: new InputDecoration(labelText: "Carrera"),
+                      keyboardType: TextInputType.number),
+                  //--------------------------------
+                  new TextField(
+                      controller: controllerHoraId,
+                      decoration: new InputDecoration(labelText: "Hora"),
+                      keyboardType: TextInputType.number),
+                  //--------------------------------
+
+                  //--------------------------------
+
+                  new RaisedButton(
+                    child: Text("Guadar"),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    onPressed: () {
+                      agregarUsuario();
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              ),
+            ]),
+          ),
+        ));
   }
 
-  void Guadar() {
+  void agregarUsuario() {
     var url =
         "https://pagina-web-optimizacion.000webhostapp.com/API/api/add.php";
     http.post(url, body: {

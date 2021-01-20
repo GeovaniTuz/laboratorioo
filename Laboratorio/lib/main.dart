@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: AdminMail(), //ADMINISTRADOR
+      //home: AdminMail(), //ADMINISTRADOR
       //home: LoginPage() //LOGIN
       //home: mainUser() //USUARIO
 
@@ -40,6 +40,18 @@ class MyApp extends StatelessWidget {
         '/Users/MainUser': (BuildContext context) => new mainUser(),
         '/Users/LoginPage': (BuildContext context) => new MyHomePage(),
       },*/
+      debugShowCheckedModeBanner: false,
+      routes: {
+        '/Home/login': (context) => LoginScreen(),
+        '/administrador': (context) => AdminMail(),
+        '/Docente': (context) => mainUser(),
+        //Perfil.ROUTE: (_) => Perfil(),
+        //'/anuncios': (context) => Anuncio(),
+        // AdminMail.ROUTE: (_) => AdminMail(),
+        //Perguar.ROUTE: (_) => Perguar(),
+        //Formulario.ROUTE: (_) => Formulario()
+      },
+      initialRoute: '/Home/login',
     );
   }
 }

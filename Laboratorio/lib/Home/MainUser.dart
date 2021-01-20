@@ -5,6 +5,7 @@ import 'package:laboratorio/Home/Usuario/Docente/funcion/settings.dart';
 import 'package:laboratorio/Home/Usuario/Docente/view.dart';
 
 class mainUser extends StatefulWidget {
+  static const String ROUTE = "/home";
   mainUser({Key key, this.title}) : super(key: key);
   @override
   _mainUserState createState() => _mainUserState();

@@ -46,9 +46,16 @@ class _EditarUsuarioState extends State<EditarUsuario> {
                     new Column(
                       //mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        new Text("ID: " +
+                        new TextField(
+                          controller: controllerid,
+                          decoration: new InputDecoration(labelText: "ID"),
+                          keyboardType: TextInputType.number,
+                        ),
+
+                        /*new Text("ID: " +
                             widget.lista[widget.index]['idlaboratorio']),
                         //--------------------------------
+                        */
                         new TextField(
                           controller: controllerNombre,
                           decoration: new InputDecoration(labelText: "Nombre"),
@@ -120,7 +127,7 @@ class _EditarUsuarioState extends State<EditarUsuario> {
     var url =
         "https://pagina-web-optimizacion.000webhostapp.com/API/api/editdata.php";
     http.post(url, body: {
-      "idlaboratorio": widget.lista[widget.index]['idlaboratorio'],
+      "idlaboratorio": controllerid.text,
       "Nombre": controllerNombre.text,
       "descripcion": controllerDescripcion.text,
       "codigo": controllerCodigo.text,
@@ -133,6 +140,8 @@ class _EditarUsuarioState extends State<EditarUsuario> {
   }
 
   void initState() {
+    controllerid = new TextEditingController(
+        text: widget.lista[widget.index]['idlaboratorio']);
     controllerNombre =
         new TextEditingController(text: widget.lista[widget.index]['Nombre']);
     controllerDescripcion = new TextEditingController(

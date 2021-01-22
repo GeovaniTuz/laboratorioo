@@ -14,9 +14,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  // controle para para datos
-  TextEditingController user = new TextEditingController();
-  TextEditingController pass = new TextEditingController();
+  bool visible = false;
+
+  final user = new TextEditingController();
+  final pass = new TextEditingController();
+
   // fin de controle
 
   //Mensaje por si surge algun problema
@@ -24,25 +26,61 @@ class _LoginScreenState extends State<LoginScreen> {
   //fin del mensaje
   //conexion a la api para validar a usuario
   Future<List> login() async {
-    final response = await http.post(
-        "https://pagina-web-optimizacion.000webhostapp.com/API/api/sesion.php",
-        body: {
-          "username": user.text,
-          "password": pass.text,
-        });
-    //fallos en esta part
-    var datauser = json.decode(response.body);
+    //circular progreso
+    setState(() {
+      visible = true;
+    });
 
-    if (datauser.length == 0) {
+// Getting value from Controller
+    String email = user.text;
+    String password = pass.text;
+
+    // SERVER LOGIN API URL
+    var url = 'https://flutter-examples.000webhostapp.com/login_user.php';
+
+    // Store all data with Param Name.
+    var data = {'email': email, 'password': password};
+
+    // Starting Web API Call.
+    var response = await http.post(url, body: json.encode(data));
+
+    // Getting Server response into variable.
+    var message = jsonDecode(response.body);
+
+    // If the Response Message is Matched.
+    if (message == 'Login Matched') {
+      // Hiding the CircularProgressIndicator.
       setState(() {
-        mensaje = "Login Fail";
+        visible = false;
       });
+
+      // Navigate to Profile Screen & Sending Email to Next Screen.
+
+      Navigator.of(context).pushNamed('/Docente');
     } else {
-      if (datauser[0][''] == '6') {
-        Navigator.pushReplacementNamed(context, '/administrador');
-      } else if (datauser[0][''] == '8') {
-        Navigator.pushReplacementNamed(context, '/Docente');
-      }
+      // If Email or Password did not Matched.
+      // Hiding the CircularProgressIndicator.
+      setState(() {
+        visible = false;
+      });
+
+      // Showing Alert Dialog with Response JSON Message.
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: new Text(message),
+            actions: <Widget>[
+              FlatButton(
+                child: new Text("OK"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
     }
   }
 
@@ -277,7 +315,7 @@ class _LoginScreenState extends State<LoginScreen> {
         elevation: 5.0,
         onPressed: () {
           login();
-          Navigator.of(context).pushNamed('/Docente');
+          // Navigator.of(context).pushNamed('/Docente');
         },
         padding: EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(

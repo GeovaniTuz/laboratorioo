@@ -15,7 +15,7 @@
 
 	
 	
-	$SQL = $MySQLiconn->query("INSERT INTO laboratorio (Nombre, descripcion, codigo, edificio, numero_aula, foto, carrera_idcarrera, Hora_idHora) VALUES('$NombreLab','$DescripcioLab','$CodigoLab','$EdificioLab','$NumeroAula','$FotoLab','$Carrera','$HoraLab')");
+	$SQL = $MySQLiconn->query("INSERT INTO laboratorio (Nombre, descripcion, codigo, edificio, numero_aula,foto,carrera_idcarrera, Hora_idHora) VALUES('$NombreLab','$DescripcioLab','$CodigoLab','$EdificioLab','$NumeroAula','$FotoLab','$Carrera','$HoraLab')");
    
 
   

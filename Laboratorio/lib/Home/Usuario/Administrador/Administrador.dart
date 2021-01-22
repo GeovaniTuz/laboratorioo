@@ -31,7 +31,8 @@ class _listLabState extends State<listLab> {
           IconButton(
               icon: Icon(Icons.search),
               onPressed: () {
-                showSearch(context: context, delegate: null);
+                //_Serachbar();
+                // showSearch(context: context, delegate: null);
               }) //Icono Fin
         ],
       ), //fin barra
@@ -75,11 +76,13 @@ class ElementoLista extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+
     return new ListView.builder(
+      scrollDirection: Axis.vertical,
       itemCount: lista == null ? 0 : lista.length,
       itemBuilder: (context, posicion) {
         return new Container(
-          padding: EdgeInsets.all(2.0),
+          padding: EdgeInsets.all(4.0),
           child: new GestureDetector(
             onTap: () {
               Navigator.of(context).push(new MaterialPageRoute(
@@ -92,7 +95,7 @@ class ElementoLista extends StatelessWidget {
             child: new Card(
               color: Colors.blueGrey,
               child: new Container(
-                padding: EdgeInsets.all(20.0),
+                padding: EdgeInsets.all(30.0),
                 child: Text(
                   lista[posicion]['idlaboratorio'] +
                       ".- " +
@@ -110,3 +113,15 @@ class ElementoLista extends StatelessWidget {
 }
 
 //fin de la clase lista
+
+//Busqueda....
+_Serachbar() {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: TextField(
+      decoration: InputDecoration(
+        hintText: 'search.....',
+      ),
+    ),
+  );
+}

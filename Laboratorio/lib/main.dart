@@ -1,14 +1,14 @@
-import 'dart:convert';
+//import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:laboratorio/Home/MainAdmin.dart';
-import 'package:laboratorio/Home/MainUser.dart';
+//import 'package:laboratorio/Home/MainUser.dart';
 
-import 'package:laboratorio/Home/login.dart';
-import 'package:http/http.dart' as http;
+//import 'package:laboratorio/Home/login.dart';
+//import 'package:http/http.dart' as http;
 
-import 'Home/login/animation/FadeAnimation.dart';
-import 'Home/login/animation/makein.dart';
+//import 'Home/login/animation/FadeAnimation.dart';
+//import 'Home/login/animation/makein.dart';
 
 //main principal de app
 void main() {
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       //home: mainUser() //USUARIO
       debugShowCheckedModeBanner: false,
 
-    /*  routes: {
+      /*  routes: {
         '/Home/login': (context) => LoginScreen(),
         '/administrador': (context) => AdminMail(),
         '/Docente': (context) => mainUser(),

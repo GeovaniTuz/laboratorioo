@@ -26,10 +26,11 @@ class _DetalleLaboratorioState extends State<DetalleLaboratorio> {
         title: Text("Detalle Laboratorio"),
       ),
       body: new Container(
-        padding: EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(50.0),
         child: new Center(
           //verficar para alinear bonito
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               // Inicio texto
               /*new Text(

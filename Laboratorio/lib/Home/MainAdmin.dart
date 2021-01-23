@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:laboratorio/Home/Usuario/Administrador/Accion/subirImagen.dart';
+//import 'package:laboratorio/Home/Usuario/Administrador/Accion/subirImagen.dart';
 import 'package:laboratorio/Home/Usuario/Administrador/Administrador.dart';
 import 'package:laboratorio/Home/Usuario/Administrador/configuracion/notifyAdmin.dart';
 import 'package:laboratorio/Home/Usuario/Administrador/configuracion/settings.dart';
+//import 'package:laboratorio/Home/util/foto.dart';
 
 class AdminMail extends StatefulWidget {
   static const String ROUTE = "/home";
@@ -19,6 +20,7 @@ class _MyHomePageState extends State<AdminMail> {
   //se instancia la clase para poder usar
   final NotifyAdmin _notificacion = new NotifyAdmin();
   //final UploadImageDemo _foto = new UploadImageDemo();
+  //final fotos _foto = new fotos();
   final settingslab _sttings = new settingslab();
   final listLab _crud = new listLab();
 
@@ -31,7 +33,7 @@ class _MyHomePageState extends State<AdminMail> {
         return _crud;
         break;
       case 1:
-        return _sttings;
+        return _notificacion;
         break;
       case 2:
         return _sttings;

@@ -94,15 +94,23 @@ class ElementoLista extends StatelessWidget {
             },
             child: new Card(
               color: Colors.blueGrey,
-              child: new Container(
-                padding: EdgeInsets.all(30.0),
-                child: Text(
-                  lista[posicion]['idlaboratorio'] +
-                      ".- " +
-                      lista[posicion]['Nombre'],
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                ),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              child: new Column(
+                children: <Widget>[
+                  ListTile(
+                    contentPadding: EdgeInsets.fromLTRB(10, 10, 25, 0),
+                    title: Text(
+                      lista[posicion]['idlaboratorio'] +
+                          '.- ' +
+                          lista[posicion]['Nombre'],
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.white),
+                    ),
+                    subtitle: Text(lista[posicion]['descripcion']),
+                    leading: Icon(Icons.home, color: Colors.white),
+                  ),
+                ],
               ),
             ),
           ),

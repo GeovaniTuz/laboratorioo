@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
+import 'package:laboratorio/Home/util/foto.dart';
 
 class UploadImageDemo extends StatefulWidget {
   UploadImageDemo() : super();
@@ -56,6 +57,9 @@ class UploadImageDemoState extends State<UploadImageDemo> {
       setStatus(error);
     });
   }
+//----------------------------------------
+
+//------------------------------
 
   Widget showImage() {
     return FutureBuilder<File>(
@@ -91,6 +95,16 @@ class UploadImageDemoState extends State<UploadImageDemo> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Upload Image Demo"),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+                //accion para agregar
+                builder: (BuildContext context) => CameraScreen()),
+          );
+        },
       ),
       body: Container(
         padding: EdgeInsets.all(30.0),

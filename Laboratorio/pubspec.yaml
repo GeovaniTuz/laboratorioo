@@ -33,11 +33,17 @@ dependencies:
   flutter_svg: ^0.19.1
   http: any
   image_picker: ^0.6.7+21
+  path_provider: ^1.6.27
+  image: ^2.1.19
+ # camera: ^0.7.0
+
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   curved_navigation_bar: ^0.3.4
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

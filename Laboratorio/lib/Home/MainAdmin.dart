@@ -60,7 +60,7 @@ class _MyHomePageState extends State<AdminMail> {
           items: <Widget>[
             Icon(Icons.list_alt, size: 30),
             Icon(Icons.notifications, size: 30),
-            Icon(Icons.settings, size: 30),
+            Icon(Icons.calendar_today, size: 30),
             Icon(Icons.exit_to_app, size: 30),
           ],
           color: Colors.white,

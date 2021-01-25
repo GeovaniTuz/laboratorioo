@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:laboratorio/Home/MainAdmin.dart';
-//import 'package:laboratorio/Home/MainUser.dart';
+import 'package:laboratorio/Home/MainUser.dart';
 
-//import 'package:laboratorio/Home/login.dart';
+import 'package:laboratorio/Home/login.dart';
 //import 'package:http/http.dart' as http;
 
 //import 'Home/login/animation/FadeAnimation.dart';
@@ -25,15 +25,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: AdminMail(), //ADMINISTRADOR
+      //home: AdminMail(), //ADMINISTRADOR
       //home: LoginPage() //LOGIN
       //home: mainUser() //USUARIO
       debugShowCheckedModeBanner: false,
 
-      /*  routes: {
-        '/Home/login': (context) => LoginScreen(),
-        '/administrador': (context) => AdminMail(),
-        '/Docente': (context) => mainUser(),
+      routes: {
+        '/Home/login': (context) => new LoginScreen(),
+        '/administrador': (context) => new AdminMail(),
+        '/Docente': (context) => new mainUser(),
         //Perfil.ROUTE: (_) => Perfil(),
         //'/anuncios': (context) => Anuncio(),
         // AdminMail.ROUTE: (_) => AdminMail(),
@@ -41,7 +41,6 @@ class MyApp extends StatelessWidget {
         //Formulario.ROUTE: (_) => Formulario()
       },
       initialRoute: '/Home/login',
-      */
     );
   }
 }

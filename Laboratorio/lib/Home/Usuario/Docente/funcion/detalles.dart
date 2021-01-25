@@ -23,13 +23,16 @@ class _DetalleLaboratorioState extends State<DetalleLaboratorio> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Solicitar"),
+        title: Text("Detalles Solitud"),
       ),
       body: new Container(
-        padding: EdgeInsets.all(10.0),
+        margin: EdgeInsets.symmetric(vertical: 5.0),
+        padding: EdgeInsets.all(50.0),
         child: new Center(
           //verficar para alinear bonito
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               // Inicio texto
               /*new Text(
@@ -44,31 +47,32 @@ class _DetalleLaboratorioState extends State<DetalleLaboratorio> {
                 style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
               new Text(
-                "Descripcion: " + widget.lista[widget.index]['descripcion'],
+                "* Descripcion: " + widget.lista[widget.index]['descripcion'],
                 style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
               ),
               new Text(
-                "Codigo: " + widget.lista[widget.index]['codigo'],
+                "* Codigo: " + widget.lista[widget.index]['codigo'],
                 style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
               ),
               new Text(
-                "Edificio: " + widget.lista[widget.index]['edificio'],
+                "* Edificio: " + widget.lista[widget.index]['edificio'],
                 style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
               ),
               new Text(
-                "Numero de Aula: " + widget.lista[widget.index]['numero_aula'],
+                "* Numero de Aula: " +
+                    widget.lista[widget.index]['numero_aula'],
                 style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
               ),
               new Text(
-                "Foto: " + widget.lista[widget.index]['foto'],
+                "* Foto: " + widget.lista[widget.index]['foto'],
                 style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
               ),
               new Text(
-                "Carrera: " + widget.lista[widget.index]['carrera_idcarrera'],
+                "* Carrera: " + widget.lista[widget.index]['carrera_idcarrera'],
                 style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
               ),
               new Text(
-                "Hora: " + widget.lista[widget.index]['Hora_idHora'],
+                "* Hora: " + widget.lista[widget.index]['Hora_idHora'],
                 style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
               ),
               Row(
@@ -81,6 +85,7 @@ class _DetalleLaboratorioState extends State<DetalleLaboratorio> {
                       borderRadius: BorderRadius.circular(30.0),
                     ),
                     onPressed: () {
+                      /*
                       Navigator.of(context).pop();
                       Navigator.of(context).push(
                         new MaterialPageRoute(
@@ -90,6 +95,7 @@ class _DetalleLaboratorioState extends State<DetalleLaboratorio> {
                           ),
                         ),
                       );
+                   */
                     },
                   ),
                   /*VerticalDivider(),
